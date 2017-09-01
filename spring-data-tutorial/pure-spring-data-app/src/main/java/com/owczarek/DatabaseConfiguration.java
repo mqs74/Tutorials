@@ -43,9 +43,9 @@ public class DatabaseConfiguration {
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setServerName("localhost");
         dataSource.setPort(3306);
-        dataSource.setDatabaseName("my_database");
-        dataSource.setUser("root");
-        dataSource.setPassword("password");
+        dataSource.setDatabaseName("walle");
+        dataSource.setUser("mqs");
+        dataSource.setPassword("frogg1");
         return dataSource;
     }
 

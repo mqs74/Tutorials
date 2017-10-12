@@ -3,10 +3,15 @@ package com.owczarek;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Entity
+@Entity(name="employee")
+@NamedQuery(
+        name = "Employee.findAllWithSalariesBetweenSomeValues",
+        query = "select e from employee e where salary between ?1 and ?2"
+)
 class Employee {
     @Id
     @GeneratedValue

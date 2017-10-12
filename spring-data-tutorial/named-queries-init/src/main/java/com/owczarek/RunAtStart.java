@@ -6,6 +6,8 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Order()
@@ -25,6 +27,21 @@ class RunAtStart {
     public void runAtStart() {
         generateManyEmployees();
 
+//        printAll(
+//                employeeRepository.findAllWithSalariesBetweenSomeValues(
+//                        new BigDecimal(1000),
+//                        new BigDecimal(2000)));
+
+        logger.info("THE LIST:");
+        printAll(employeeRepository.findGuyWithHighestSalary());
+
+        logger.info("ONLY ONE:");
+        logger.info(employeeRepository.findOnlyOneGurWithHighestSalary());
+
+        logger.info("NATIVELY:");
+        printAll(employeeRepository.findNativleyAllWithSalaryBetween(
+                new BigDecimal(1000),
+                new BigDecimal(2000)));
     }
 
     private void generateManyEmployees() {
